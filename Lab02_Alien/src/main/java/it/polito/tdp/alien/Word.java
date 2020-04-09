@@ -1,29 +1,53 @@
 package it.polito.tdp.alien;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Word {
 	
 	private String alienWord;
-	private String translation;
+	//private String translation;
+	private List<String>translations;
+	
+	
 
 	
 	public Word(String alienWord, String translation) {
 		this.alienWord = alienWord;
-		this.translation=translation;
+		this.translations=new ArrayList<>();
+		this.translations.add(translation);
 	}
 	
 	public Word(String alienWord) {
 		this.alienWord = alienWord;
+		this.translations=new ArrayList<>();
 	}
 	
 	
 
-	public String getTranslation() {
-		return translation;
+	//esercizio 2
+
+	public String getTranslations() {
+		String s="";
+		for(String t : translations) {
+			s+=t+"\n";
+		}
+		return s;
 	}
 
+	public void setTranslations(String translation) {
+		if(!translations.contains(translation))
+			translations.add(translation);
+	}
+	
+	
 
-	public void setTranslation(String translation) {
-		this.translation = translation;
+	public String getAlienWord() {
+		return alienWord;
+	}
+
+	public void setAlienWord(String alienWord) {
+		this.alienWord = alienWord;
 	}
 
 

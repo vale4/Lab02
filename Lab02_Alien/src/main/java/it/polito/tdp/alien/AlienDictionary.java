@@ -10,16 +10,17 @@ public class AlienDictionary {
 	public void add(String alienWord, String translation) {
 		Word w=new Word(alienWord, translation);
 		if(dizionario.contains(w)) {
-			dizionario.get(dizionario.indexOf(w)).setTranslation(translation);
+			dizionario.get(dizionario.indexOf(w)).setTranslations(translation);
 			return;
 		}
+		w.setTranslations(translation);
 		dizionario.add(w);
 	}
 	
 	public String translateWord(String alienWord) {
 		Word w=new Word(alienWord);
 		if(dizionario.contains(w)) {
-			return dizionario.get(dizionario.indexOf(w)).getTranslation();
+			return dizionario.get(dizionario.indexOf(w)).getTranslations();
 		}
 		return null;
 	}
